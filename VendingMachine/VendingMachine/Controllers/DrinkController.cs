@@ -8,9 +8,9 @@ using VendingMachine.Models;
 
 namespace VendingMachine.Controllers
 {
-    [Route("api/[controller]")]
     [ApiController]
-    public class DrinksController : ControllerBase
+    [Route("api/[controller]")]
+    public class DrinkController : ControllerBase
     {
         private static Drink[] Drinks = new[]
         {
@@ -38,10 +38,11 @@ namespace VendingMachine.Controllers
             return Ok(Drinks);
         }
 
+        //GET api/drinks/{id}
         [HttpGet]
-        public ActionResult<Drink> Get(int Id)
+        public ActionResult<Drink> Get(int id)
         {
-            var drinkToReturn = Drinks.FirstOrDefault(x => x.ID == Id);
+            var drinkToReturn = Drinks.FirstOrDefault(x => x.ID == id);
 
             if (drinkToReturn != default(Drink))
             {
