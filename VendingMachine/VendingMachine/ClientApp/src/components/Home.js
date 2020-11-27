@@ -18,7 +18,10 @@ export function Home() {
 
     return (
         <div>
-            {drinks.map((drink) => (<DrinkOption drink={drink} setOrderedDrink={setOrderedDrink} />))}
+            <h1>What drink would you like to order?</h1>
+            <div className='drink-option-list'>
+                {drinks.map((drink) => (<DrinkOption drink={drink} setOrderedDrink={setOrderedDrink} />))}
+            </div>
             <div>
                 <DrinkOutput drink={orderedDrink}/>
             </div>

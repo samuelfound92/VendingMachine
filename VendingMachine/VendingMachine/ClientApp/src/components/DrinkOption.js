@@ -1,4 +1,5 @@
 ﻿import React from 'react'
+import { Button } from 'reactstrap';
 
 export default function DrinkOption(props) {
     const orderDrink = () => {
@@ -12,11 +13,11 @@ export default function DrinkOption(props) {
     }
 
     return(
-        <div className='drink-option' onClick={orderDrink}>
+        <Button className='drink-option' onClick={orderDrink}>
             <div className='summary'>{props.drink.name}</div>
             <div className='image-container'>
                 <img src='/icons/drinkIcon.png' />
             </div>
-        </div>
+        </Button>
     )
 }

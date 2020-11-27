@@ -13,19 +13,33 @@ code {
   border-color: #1861ac;
 }
 
-.drink-option {
-    background-color: #1b6ec2;
-    border-width: 2px;
-    border-color: #1861ac;
-    border-radius: 5px;
-    padding: 5px;
+.drink-option-list {
     display: flex;
     flex-direction: row;
+    padding: 10px;
 }
 
-    .drink-option .summary {
-        flex: 4;
+    .drink-option-list .drink-option {
+        margin-left: 5px;
+        margin-right: 5px;
     }
+
+    .drink-option {
+        background-color: #1b6ec2;
+        border-width: 2px;
+        border-color: #1861ac;
+        border-radius: 5px;
+        padding: 5px;
+        display: flex;
+        flex-direction: row;
+        flex: 1;
+    }
+
+        .drink-option .summary {
+            flex: 4;
+            color: white;
+            font-weight: 600;
+        }
 
     .drink-option .image-container {
         flex: 1;
