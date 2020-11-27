@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using VendingMachine.Models;
+using VendingMachine.Data;
 
 namespace VendingMachine.Controllers
 {
@@ -12,37 +13,25 @@ namespace VendingMachine.Controllers
     [Route("api/[controller]")]
     public class DrinkController : ControllerBase
     {
-        private static Drink[] Drinks = new[]
-        {
-            new Drink()
-            {
-                ID = 1,
-                Name = "Lemon Tea",
-                Steps = new string[]{ "Boil some water", "Steep the water in the tea", "Pour tea in the cup", "Add lemon" }
-            },
-            new Drink(){
-                ID = 2,
-                Name = "Coffee",
-                Steps = new string[]{ "Boil some water", "Brew the coffee grounds", "Pour coffee in the cup", "Add sugar and milk" }
-            },
-            new Drink(){
-                ID = 3,
-                Name = "Chocolate",
-                Steps = new string[]{ "Boil some water", "Add drinking chocolate powder to the water", "Pour chocolate in the cup" }
-            }
-        };
+        private readonly IDrinkRepo _drinkRepo;
 
+        public DrinkController(IDrinkRepo drinkRepo) 
+        {
+            _drinkRepo = drinkRepo;
+        }
+        
         [HttpGet]
         public ActionResult<IEnumerable<DrinkOption>> GetAllDrinkOptions()
         {
-            return Ok(Drinks);
+            var drinks = _drinkRepo.GetDrinkOptions();
+            return Ok(drinks);
         }
 
         //GET api/drinks/{id}
         [HttpGet("{id}")]
         public ActionResult<Drink> GetDrink(int id)
         {
-            var drinkToReturn = Drinks.FirstOrDefault(x => x.ID == id);
+            var drinkToReturn = _drinkRepo.GetDrink(id);
 
             if (drinkToReturn != default(Drink))
             {
