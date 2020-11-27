@@ -15,17 +15,17 @@ namespace VendingMachine.Controllers
         private static Drink[] Drinks = new[]
         {
             new Drink()
-            { 
+            {
                 ID = 1,
                 Name = "Lemon Tea",
                 Steps = new string[]{ "Boil some water", "Steep the water in the tea", "Pour tea in the cup", "Add lemon" }
             },
-            new Drink(){ 
+            new Drink(){
                 ID = 2,
                 Name = "Coffee",
                 Steps = new string[]{ "Boil some water", "Brew the coffee grounds", "Pour coffee in the cup", "Add sugar and milk" }
             },
-            new Drink(){ 
+            new Drink(){
                 ID = 3,
                 Name = "Chocolate",
                 Steps = new string[]{ "Boil some water", "Add drinking chocolate powder to the water", "Pour chocolate in the cup" }
@@ -33,14 +33,14 @@ namespace VendingMachine.Controllers
         };
 
         [HttpGet]
-        public ActionResult<IEnumerable<Drink>> Get()
+        public ActionResult<IEnumerable<Drink>> GetAllDrinks()
         {
             return Ok(Drinks);
         }
 
         //GET api/drinks/{id}
-        [HttpGet]
-        public ActionResult<Drink> Get(int id)
+        [HttpGet("{id}")]
+        public ActionResult<Drink> GetDrink(int id)
         {
             var drinkToReturn = Drinks.FirstOrDefault(x => x.ID == id);
 
