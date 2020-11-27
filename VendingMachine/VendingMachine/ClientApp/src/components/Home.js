@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import DrinkOption from './DrinkOption'
+import DrinkOutput from './DrinkOutput'
 
 export function Home() {
     const [drinks, setDrinks] = useState([]);
+    const [orderedDrink, setOrderedDrink] = useState();
 
     useEffect(() => {
         const fetchData = async () => {
@@ -15,6 +17,11 @@ export function Home() {
     }, [])
 
     return (
-        drinks.map((drink) => (<DrinkOption drink={drink} />))
+        <div>
+            {drinks.map((drink) => (<DrinkOption drink={drink} setOrderedDrink={setOrderedDrink} />))}
+            <div>
+                <DrinkOutput drink={orderedDrink}/>
+            </div>
+        </div>
     );
 }
