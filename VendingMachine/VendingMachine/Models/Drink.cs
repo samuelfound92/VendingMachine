@@ -9,7 +9,7 @@ namespace VendingMachine.Models
     {
         public int ID { get; set; }
         public string Name { get; set; }
-        public IEnumerable<string> Steps { get; set; }
+        public string[] Steps { get; set; }
     }
 
 }
