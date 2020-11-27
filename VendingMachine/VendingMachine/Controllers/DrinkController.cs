@@ -33,7 +33,7 @@ namespace VendingMachine.Controllers
         };
 
         [HttpGet]
-        public ActionResult<IEnumerable<Drink>> GetAllDrinks()
+        public ActionResult<IEnumerable<DrinkOption>> GetAllDrinkOptions()
         {
             return Ok(Drinks);
         }

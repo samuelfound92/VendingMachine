@@ -5,10 +5,14 @@ using System.Threading.Tasks;
 
 namespace VendingMachine.Models
 {
-    public class Drink
+    public class DrinkOption
     {
         public int ID { get; set; }
-        public string Name { get; set; }
+        public string Name { get; set; }        
+    }
+
+    public class Drink : DrinkOption 
+    {
         public string[] Steps { get; set; }
     }
 
