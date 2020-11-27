@@ -13,7 +13,10 @@ export default function DrinkOption(props) {
 
     return(
         <div className='drink-option' onClick={orderDrink}>
-            <div>{props.drink.name}</div>
+            <div className='summary'>{props.drink.name}</div>
+            <div className='image-container'>
+                <img src='/icons/drinkIcon.png' />
+            </div>
         </div>
     )
 }
