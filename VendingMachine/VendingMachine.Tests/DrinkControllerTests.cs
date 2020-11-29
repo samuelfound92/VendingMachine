@@ -24,7 +24,7 @@ namespace VendingMachine.Tests
         }
 
         [TestMethod]
-        public void GetAllDrinkOptionsReturnsOk()
+        public void GetAllDrinkOptions_ReturnsOk()
         {
             //Act
             var response = _drinkController.GetAllDrinkOptions();
@@ -34,7 +34,7 @@ namespace VendingMachine.Tests
         }
 
         [TestMethod]
-        public void GetDrinkReturnsBadRequest() 
+        public void GetDrink_ForInvalidID_ReturnsBadRequest() 
         {
             //Act
             var response = _drinkController.GetDrink(0);
@@ -44,7 +44,7 @@ namespace VendingMachine.Tests
         }
 
         [TestMethod]
-        public void GetDrinkReturnsOKRequest() 
+        public void GetDrink_ForValidID_ReturnsOKRequest() 
         {
             //Act
             var response = _drinkController.GetDrink(TEST_DRINK_ID);
