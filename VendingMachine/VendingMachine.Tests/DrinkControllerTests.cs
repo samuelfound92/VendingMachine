@@ -17,6 +17,7 @@ namespace VendingMachine.Tests
         [TestInitialize]
         public void SetUp() 
         {
+            //Arrange
             _drinkRepo = new Mock<IDrinkRepo>();
             _drinkRepo.Setup(x => x.GetDrink(TEST_DRINK_ID)).Returns( new Drink(TEST_DRINK_ID, "Test Drink", new string[] { "" }));
             _drinkController = new DrinkController(_drinkRepo.Object);
@@ -25,24 +26,30 @@ namespace VendingMachine.Tests
         [TestMethod]
         public void GetAllDrinkOptionsReturnsOk()
         {
+            //Act
             var response = _drinkController.GetAllDrinkOptions();
 
+            //Assert
             Assert.IsInstanceOfType(response.Result, typeof(OkObjectResult));
         }
 
         [TestMethod]
         public void GetDrinkReturnsBadRequest() 
         {
+            //Act
             var response = _drinkController.GetDrink(0);
 
+            //Assert
             Assert.IsInstanceOfType(response.Result, typeof(BadRequestObjectResult));
         }
 
         [TestMethod]
         public void GetDrinkReturnsOKRequest() 
         {
+            //Act
             var response = _drinkController.GetDrink(TEST_DRINK_ID);
             
+            //Assert
             Assert.IsInstanceOfType(response.Result, typeof(OkObjectResult));
         }
     }
