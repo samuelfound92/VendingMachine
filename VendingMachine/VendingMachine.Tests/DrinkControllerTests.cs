@@ -44,7 +44,7 @@ namespace VendingMachine.Tests
         }
 
         [TestMethod]
-        public void GetDrink_ForValidID_ReturnsOKRequest() 
+        public void GetDrink_ForValidID_ReturnsOK() 
         {
             //Act
             var response = _drinkController.GetDrink(TEST_DRINK_ID);
