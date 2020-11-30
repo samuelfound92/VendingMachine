@@ -34,13 +34,13 @@ namespace VendingMachine.Tests
         }
 
         [TestMethod]
-        public void GetDrink_ForInvalidID_ReturnsBadRequest() 
+        public void GetDrink_ForInvalidID_ReturnsNotFound() 
         {
             //Act
             var response = _drinkController.GetDrink(0);
 
             //Assert
-            Assert.IsInstanceOfType(response.Result, typeof(BadRequestObjectResult));
+            Assert.IsInstanceOfType(response.Result, typeof(NotFoundResult));
         }
 
         [TestMethod]

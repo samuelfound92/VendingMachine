@@ -39,7 +39,7 @@ namespace VendingMachine.Controllers
             }
             else 
             {
-                return BadRequest("Invalid drink selection");
+                return NotFound();
             }
         }
     }
